@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>User Management System</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <h1>Patient Management System</h1>
+    <hr>
+    <h2>Save Patient</h2>
+
+    <form action="#" method="POST" th:action="@{/patient/savePatient}" th:object="${patientForm}">
+
+        <input class="form-control mb-4 col-4" placeholder="Nom" th:field="*{nom}" type="text">
+        <p class="text-danger" th:errors="*{nom}" th:if="${#fields.hasErrors('nom')}"></p>
+
+        <input class="form-control mb-4 col-4" placeholder="Prenom" th:field="*{prenom}" type="text">
+        <p class="text-danger" th:errors="*{prenom}" th:if="${#fields.hasErrors('prenom')}"></p>
+
+        <input class="form-control mb-4 col-4" placeholder="Genre" th:field="*{genre}" type="text">
+
+        <p class="text-danger" th:errors="*{genre}" th:if="${#fields.hasErrors('genre')}"></p>
+
+
+        <input class="form-control mb-4 col-4" placeholder="DateDeNaissaince" th:field="*{dateDeNaissance}" type="text">
+        <p class="text-danger" th:errors="*{dateDeNaissance}" th:if="${#fields.hasErrors('dateDeNaissance')}"></p>
+
+        <input class="form-control mb-4 col-4" placeholder="adressePostale" th:field="*{adressePostale}" type="text">
+        <p class="text-danger" th:errors="*{adressePostale}" th:if="${#fields.hasErrors('adressePostale')}"></p>
+
+        <input class="form-control mb-4 col-4" placeholder="NumeroDeTelephone" th:field="*{numeroDeTelephone}"
+               type="text">
+
+
+        <button class="btn btn-info col-2" type="submit"> Save Patient</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/patient}"> Back to Patient List</a>
+</div>
+</body>
+
+</html>
