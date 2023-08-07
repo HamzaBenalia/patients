@@ -26,7 +26,6 @@ public class PatientServiceImpl implements PatientService {
 
     // Obtenir un patient spécifique par son ID
     public Patient getPatient(Integer id) throws PatientNotFoundException {
-        // Si le patient n'est pas trouvé, lance une exception
         return patientsRepository.findById(id)
                 .orElseThrow(() -> new PatientNotFoundException("Patient non trouvé avec l'ID : " + id));
     }
