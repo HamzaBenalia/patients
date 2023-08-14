@@ -63,7 +63,7 @@ public class PatientController {
     @Operation(
             description = "update a patient by id endPoint"
     )
-    @PutMapping("/update/{id}")
+    @PostMapping("/update/{id}")
     public Patient updatePatient(@Valid @PathVariable Integer id, @RequestBody Patient patient) throws PatientNotFoundException {
         log.info("mise à jour du patient : {}", patient);
         return patientService.updatePatient(id, patient);

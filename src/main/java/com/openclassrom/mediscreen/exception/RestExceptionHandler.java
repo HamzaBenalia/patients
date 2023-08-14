@@ -23,6 +23,12 @@ public class RestExceptionHandler {
         return new Error(HttpStatus.NOT_FOUND, patientNotFoundException.getMessage());
     }
 
+    @ExceptionHandler(ServiceUnavailableException.class)
+    @ResponseStatus(value = HttpStatus.SERVICE_UNAVAILABLE)
+    public Error handleServiceUnavailableException(ServiceUnavailableException serviceUnavailableException, WebRequest request) {
+        return new Error(HttpStatus.SERVICE_UNAVAILABLE, serviceUnavailableException.getMessage());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> customValidationErrorHandling(MethodArgumentNotValidException ex) {
         Map<String, Object> body = new HashMap<>();

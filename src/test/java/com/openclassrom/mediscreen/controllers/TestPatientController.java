@@ -1,4 +1,4 @@
-package com.openclassrom.mediscreen.controllerTest;
+package com.openclassrom.mediscreen.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrom.mediscreen.model.Patient;
@@ -103,7 +103,7 @@ public class TestPatientController {
         Patient patient = new Patient();
         when(patientService.updatePatient(id, patient)).thenReturn(patient);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/patient/update/" + id)
+        mockMvc.perform(MockMvcRequestBuilders.post("/patient/update/" + id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(patient)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
