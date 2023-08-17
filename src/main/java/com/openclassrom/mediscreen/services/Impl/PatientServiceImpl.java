@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -53,5 +54,11 @@ public class PatientServiceImpl implements PatientService {
     public String deletePatient(Integer id) {
         patientsRepository.deleteById(id);
         return "patient supprimé";
+    }
+
+    @Override
+    public List<Patient> getPatientByIds(List<String> patientIds) {
+        List<Integer> patients = patientIds.stream().map(patient -> Integer.valueOf(patient)).collect(Collectors.toList());
+        return patientsRepository.findByIdsIn(patients);
     }
 }

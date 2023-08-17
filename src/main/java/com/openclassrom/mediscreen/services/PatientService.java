@@ -21,5 +21,6 @@ public interface PatientService {
 
     String deletePatient(Integer id);
 
+    List<Patient> getPatientByIds(List<String> patientIds);
 
 }

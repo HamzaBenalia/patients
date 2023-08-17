@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -76,4 +77,10 @@ public class PatientController {
     public String delete(@PathVariable Integer id) {
         return patientService.deletePatient(id);
     }
+
+    @GetMapping("/findByPatientIds")
+    public List<Patient> getPatientByIds(@RequestParam List<String> patientIds) {
+        return patientService.getPatientByIds(patientIds);
+    }
+
 }
