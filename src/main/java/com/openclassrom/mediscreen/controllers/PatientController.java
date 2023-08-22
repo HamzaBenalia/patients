@@ -78,6 +78,10 @@ public class PatientController {
         return patientService.deletePatient(id);
     }
 
+    @Operation(
+            description = "Get patients by their Ids"
+    )
+
     @GetMapping("/findByPatientIds")
     public List<Patient> getPatientByIds(@RequestParam List<String> patientIds) {
         return patientService.getPatientByIds(patientIds);
