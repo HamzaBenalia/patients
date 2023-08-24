@@ -1,4 +1,4 @@
-# Patients microservice
+# Patient microservice
 
 **Patients microservice is a service that manages patients from Abernathy Clinic.
 Thanks to this API, you will be able to create, read, update and delete  patients.**
@@ -25,7 +25,7 @@ if you don't already have post man. You can download it through : https://www.po
 # API Specifications
 **Microservice url is configured to serve datas on `localhost:8080/patient/`**.
 
-## **GET `/patients`**
+## **GET `/patient`**
 This route gets the list of every patients registered in database
 
 ### **Successful response example**
@@ -60,42 +60,6 @@ This route gets the list of every patients registered in database
         "phone": "0711223355"
     }
 ]
-```
-
-## **GET `/patients?firstName=[firstName]&lastName=[lastName]`**
-This route gets patients that are registered with the given first name and last name.
-
-### **Successful response example**
-**URL : `localhost:9001/api/patients?firstName=Etienne&lastName=Dupont`**
-```json
-[
-    {
-        "id": "ED88884",
-        "firstName": "ETIENNE",
-        "lastName": "DUPONT",
-        "dateOfBirth": "1998-12-31",
-        "gender": "M",
-        "address": "123 rue des Pommiers",
-        "phone": "789-101-1112"
-    },
-    {
-        "id": "ED45951",
-        "firstName": "ETIENNE",
-        "lastName": "DUPONT",
-        "dateOfBirth": "1968-12-31",
-        "gender": "M",
-        "address": "456 Rue des Cerisiers",
-        "phone": "808-404-2020"
-    }
-]
-```
-### **Unsuccessful response example**
-```json
-{
-    "time": "2022-11-15T17:43:24.868+00:00",
-    "status": "NOT_FOUND",
-    "message": "The patient with given nom was not found"
-}
 ```
 
 ## **GET `/patient/{id}`**
