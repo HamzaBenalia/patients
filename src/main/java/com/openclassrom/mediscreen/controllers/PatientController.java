@@ -48,7 +48,7 @@ public class PatientController {
             description = "get one patient by id endPoint"
     )
     @GetMapping("/{id}")
-    public Patient getPatient(@PathVariable Integer id) throws PatientNotFoundException {
+    public Patient getPatient(@PathVariable("id") Integer id) throws PatientNotFoundException {
         log.info("Lecture du patient: {}", id);
         return patientService.getPatient(id);
     }
@@ -57,15 +57,15 @@ public class PatientController {
             description = "get patients by name endPoint"
     )
     @GetMapping("/find/{nom}")
-    public List<Patient> getPatients(@PathVariable String nom) {
+    public List<Patient> getPatients(@PathVariable("nom") String nom) {
         return patientService.findByNom(nom);
     }
 
     @Operation(
             description = "update a patient by id endPoint"
     )
-    @PostMapping("/update/{id}")
-    public Patient updatePatient(@Valid @PathVariable Integer id, @RequestBody Patient patient) throws PatientNotFoundException {
+    @PutMapping("/update/{id}")
+    public Patient updatePatient(@Valid @PathVariable("id") Integer id, @RequestBody Patient patient) throws PatientNotFoundException {
         log.info("mise à jour du patient : {}", patient);
         return patientService.updatePatient(id, patient);
     }
@@ -81,10 +81,8 @@ public class PatientController {
     @Operation(
             description = "Get patients by their Ids"
     )
-
     @GetMapping("/findByPatientIds")
     public List<Patient> getPatientByIds(@RequestParam List<String> patientIds) {
         return patientService.getPatientByIds(patientIds);
     }
-
 }

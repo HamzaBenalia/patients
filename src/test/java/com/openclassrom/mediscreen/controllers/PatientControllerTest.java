@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TestPatientController {
+public class PatientControllerTest {
 
 
     @Autowired
@@ -103,7 +103,7 @@ public class TestPatientController {
         Patient patient = new Patient();
         when(patientService.updatePatient(id, patient)).thenReturn(patient);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/patient/update/" + id)
+        mockMvc.perform(MockMvcRequestBuilders.put("/patient/update/" + id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(mapper.writeValueAsString(patient)))
                 .andExpect(MockMvcResultMatchers.status().isOk())

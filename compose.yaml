@@ -1,10 +1,19 @@
+#version: '1'
+#
 #services:
-#  mysql:
-#    image: 'mysql:latest'
-##    environment:
-###      - 'MYSQL_DATABASE=patients'
-##      - 'MYSQL_PASSWORD=secret'
-##      - 'MYSQL_ROOT_PASSWORD=verysecret'
-##      - 'MYSQL_USER=myuser'
-##    ports:
-#      - '3306'
+#  mongodb:
+#    image: mysql:latest
+#
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      - Mysql_INITDB_DATABASE=patients
+#
+#  note-app:
+#    image: hamza3991/note:0.0.1
+#    ports:
+#      - "9090:9090"
+#    environment:
+#      - SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/note
+#    depends_on:
+#      - mongodb

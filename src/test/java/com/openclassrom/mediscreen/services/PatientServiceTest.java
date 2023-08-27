@@ -25,7 +25,7 @@ import static org.mockito.Mockito.verify;
 
 
 @SpringBootTest
-public class TestPatientService {
+public class PatientServiceTest {
 
     @InjectMocks
     private PatientServiceImpl patientServiceImpl;
