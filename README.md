@@ -13,8 +13,8 @@ Patient microservice is built with the followings technologies :
 
 # Setting up the microservice
 In order to store datas, you must create a MySQL database with the following steps with your terminal :
-- Create a database named `abernathyclinic` : `CREATE DATABASE abernathyclinic;` (default credentials are root:root and can be changed in `application.properties`)
--`USE abernathyclinic;`
+- Create a database named `Patients` : `CREATE DATABASE Patients;` (default credentials are root:root and can be changed in `application.properties`)
+-`USE patients;`
 - Load the schema (found in `src/main/resources`) using : `SOURCE schema.sql;`
 
 If everything is set up correctly, start your (IDE) like intelliJ and start doing your crud.
@@ -101,7 +101,7 @@ This route will create a patient for you. Field uses validation concept, therefo
 {
     "time": "2022-11-15T17:44:11.668+00:00",
     "status": "BAD_REQUEST",
-    "message": "phone filed is required"
+    "message": "phone field is required"
 }
 ```
 
@@ -130,7 +130,13 @@ This route deletes a patient from a database based on an Id.
 A message will indicate if the operation is successful.
 
 ### **Successful response example**
-**URL : `localhost:9001/patient/5/`**
+**URL : `localhost:8080/patient/5/`**
 ```json
 patient supprimé avec succée.
 ```
+
+
+## Rapport test Jacoco 
+
+![rapport jacoco patients](https://github.com/HamzaBenalia/patients-Micro-Service/assets/99022185/82108af7-26ee-459f-9944-7f66eb1854b2)
+
